@@ -14,8 +14,11 @@ function query(command, params, method = 'all') {
 }
 
 const db = new SQLite.Database("./src/database/banco.db", SQLite.OPEN_READWRITE, (err) => {
-    if (err)
+    if (err) {
         return console.log("Erro ao conectar com banco: " + err.message);
+    } else {
+        console.log("Conexão com o banco de dados estabelecida com sucesso!");
+    }
 });
 
 export { db, query };
